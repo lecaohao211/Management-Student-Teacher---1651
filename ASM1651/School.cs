@@ -17,8 +17,8 @@ namespace ASM1651
         public void AddStudent()
         {
             Console.Write("Enter Student ID: ");
-            //int id = int.Parse(Console.ReadLine());
-            string id = Console.ReadLine();
+            int id = int.Parse(Console.ReadLine());
+            //string id = Console.ReadLine();
             Console.Write("Enter Student Name: ");
             string name = Console.ReadLine();
             Console.Write("Enter Student Sex: ");
@@ -53,36 +53,51 @@ namespace ASM1651
         }
         public void UpdateStudent()
         {
+            Student student1 = new Student();
             if (students == null || students.Count == 0)
             {
                 Console.WriteLine("List students is empty. Please Add Student!");
                 AddStudent();
             }
             Console.Write("Enter Student ID Update: ");
-            string idStudentUpdate = Console.ReadLine();
-            //if (String.IsNullOrEmpty(idStudentUpdate))
-            //{
-            //    Console.WriteLine("Please Enter Student ID Update.");
-            //}
-            //Student studentUpdate = null;
-            //foreach (Student student in students)
-            //{
-            //    if (!String.IsNullOrEmpty(student.ID) && student.ID.Equals(idStudentUpdate))
-            //    {
-            //        studentUpdate = student;
-            //    }
-            //}
+            int idStudentUpdate = int.Parse(Console.ReadLine());
+            while (idStudentUpdate.ToString() == "")
+            {
+                Console.WriteLine("Please input ID for update student.");
+                idStudentUpdate = int.Parse(Console.ReadLine());
+            }
+            foreach (Student student in students)
+            {
+                if (student.ID == idStudentUpdate)
+                {
+                    Console.WriteLine("Please enter infomation update:");
+                    Console.WriteLine("ID student: ");
+                    int id = int.Parse(Console.ReadLine());
+                    Console.WriteLine("Name student: ");
+                    string name = Console.ReadLine();
+                    Console.WriteLine("Sex student: ");
+                    string sex = Console.ReadLine();
+                    Console.WriteLine("Age student: ");
+                    int age = int.Parse(Console.ReadLine());
+                    Console.WriteLine("Phone student: ");
+                    string phone = Console.ReadLine();
+                    Console.WriteLine("Grade student: ");
+                    double grade = double.Parse(Console.ReadLine());
+                    Console.WriteLine("Class student: ");
+                    string classes = Console.ReadLine();
 
-
-            //if (studentUpdate == null)
-            //{
-            //    Console.WriteLine("Student not found!");
-            //}
-            //else // Founded
-            //{
-            //    studentUpdate.DisplayInfo();
-            //    Console.WriteLine("Student updated successfully!");
-            //}
+                    student.ID = id;
+                    student.Name = name;
+                    student.Sex = sex;
+                    student.Age = age;
+                    student.Phone = phone;
+                    student.Grade = grade;
+                    student.Classes = classes;  
+                    //ghì đè
+                    Console.WriteLine("Update Sucessfuly!");
+                    break;
+                }
+            }
         }
         public void DeleteStudent()
         {
@@ -93,35 +108,30 @@ namespace ASM1651
                 AddStudent();
             }
             Console.Write("Enter Student ID Delete: ");
-            string idStudentDelete = Console.ReadLine();
-            if (String.IsNullOrEmpty(idStudentDelete))
+            int idStudentDelete = int.Parse(Console.ReadLine());
+            while(idStudentDelete.ToString() == "")
             {
                 Console.WriteLine("Please input ID for delete student.");
+                idStudentDelete = int.Parse(Console.ReadLine());
             }
-            Student studentDelete = null;
+            
             foreach (Student student in students)
             {
-                if (!String.IsNullOrEmpty(student.ID)
-                    && student.ID.Equals(idStudentDelete))
+                if ( student.ID == idStudentDelete)
                 {
-                    studentDelete = student;
+                    students.Remove(student);
+                    Console.WriteLine("Delete Sucessfuly!");
+                    break;
                 }
             }
-            if (studentDelete == null)
-            {
-                Console.WriteLine("Student not found!");
-            }
-            else 
-            {
-                student1.NotifyWhenupdated();
-                students.Remove(studentDelete);
-            }
+
         }
         public void AddTeacher()
         {
+       
             Console.Write("Enter Teacher ID: ");
-            //int id = int.Parse(Console.ReadLine());
-            string id = Console.ReadLine();
+            int id = int.Parse(Console.ReadLine());
+            //string id = Console.ReadLine();
             Console.Write("Enter Teacher Name: ");
             string name = Console.ReadLine();
             Console.Write("Enter Teacher Sex: ");
@@ -158,6 +168,54 @@ namespace ASM1651
         }
         public void UpdateTeacher()
         {
+            Teacher teacher1 = new Teacher();
+            if (teachers == null || teachers.Count == 0)
+            {
+                Console.WriteLine("List teachers is empty. Please Add Teacher!");
+                AddTeacher();
+            }
+            Console.Write("Enter Teacher ID Update: ");
+            int idTeacherUpdate = int.Parse(Console.ReadLine());
+            while (idTeacherUpdate.ToString() == "")
+            {
+                Console.WriteLine("Please input ID for update teacher.");
+                idTeacherUpdate = int.Parse(Console.ReadLine());
+            }
+            foreach (Teacher teacher in teachers)
+            {
+                if (teacher.ID == idTeacherUpdate)
+                {
+                    Console.WriteLine("Please enter infomation update:");
+                    Console.WriteLine("ID Teacher: ");
+                    int id = int.Parse(Console.ReadLine());
+                    Console.WriteLine("Name Teacher: ");
+                    string name = Console.ReadLine();
+                    Console.WriteLine("Sex Teacher: ");
+                    string sex = Console.ReadLine();
+                    Console.WriteLine("Age Teacher: ");
+                    int age = int.Parse(Console.ReadLine());
+                    Console.WriteLine("Phone Teacher: ");
+                    string phone = Console.ReadLine();
+                    Console.WriteLine("Subject Teacher: ");
+                    string subject = Console.ReadLine();
+                    Console.WriteLine("Year Experience Teacher: ");
+                    int yearExperience = int.Parse(Console.ReadLine());
+                    Console.WriteLine("Email Teacher: ");
+                    string email = Console.ReadLine();
+
+                    teacher.ID = id;
+                    teacher.Name = name;
+                    teacher.Sex = sex;
+                    teacher.Age = age;
+                    teacher.Phone = phone;
+                    teacher.Subject = subject;
+                    teacher.YearExperience = yearExperience;
+                    teacher.Email = email;
+                    //ghì đè
+                    Console.WriteLine("Update Sucessfuly!");
+                    break;
+                }
+            }
         }
         public void DeleteTeacher()
         {
@@ -169,28 +227,8 @@ namespace ASM1651
             }
             Console.Write("Enter Student ID Delete: ");
             string idTeacherDelete = Console.ReadLine();
-            if (String.IsNullOrEmpty(idTeacherDelete))
-            {
-                Console.WriteLine("Please input ID for delete student.");
-            }
-            Student teacherDelete = null;
-            foreach (Teacher teacher in teachers)
-            {
-                if (!String.IsNullOrEmpty(teacher.ID)
-                    && teacher.ID.Equals(idTeacherDelete))
-                {
-                    teacherDelete = teacher;
-                }
-            }
-            if (teacherDelete == null)
-            {
-                Console.WriteLine("Student not found!");
-            }
-            else 
-            {
-                teacher1.NotifyWhenDeleted();   
-                students.Remove(teacherDelete);
-            }
+            Teacher teacher = new Teacher();
+            teachers.Remove(teacher);
         }
     }
 }

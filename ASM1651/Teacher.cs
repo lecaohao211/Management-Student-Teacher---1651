@@ -18,7 +18,7 @@ namespace ASM1651
         public int salary { get ; set ; }
         public Teacher() { }
 
-        public Teacher(string id, string name, string sex, int age, string phone, string subject, int yearExperience, string email) : base(id,name,sex,age,phone)
+        public Teacher(int id, string name, string sex, int age, string phone, string subject, int yearExperience, string email) : base(id,name,sex,age,phone)
         {
             Subject = subject;
             YearExperience = yearExperience;
@@ -28,7 +28,7 @@ namespace ASM1651
         public override void DisplayInfo()
         {
             //Console.WriteLine($"ID: {ID}, Name: {Name}, Sex: {Sex}, Age: {Age}, Phone: {Phone}, Subject: {Subject}, Year Experience: {YearExperience}, Emai: {Email}");
-            Console.WriteLine("=========STUDENT LIST=========");
+            Console.WriteLine("=========TEACHER LIST=========");
             Console.WriteLine("Teacher ID:    " + ID);
             Console.WriteLine("Teacher Name:  " + Name);
             Console.WriteLine("Teacher Sex:   " + Sex);

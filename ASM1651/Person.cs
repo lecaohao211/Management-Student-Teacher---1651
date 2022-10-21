@@ -10,13 +10,17 @@ namespace ASM1651
     abstract class Person
     {
         //protected int ID { get; set; }
-        public string ID { get; set; }
-        protected string Name { get; set; }
-        protected string Sex { get; set; }
-        protected int Age { get; set; }
-        protected string Phone { get; set; }
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public string Sex { get; set; }
+        public int Age { get; set; }
+        public string Phone { get; set; }
+        //protected string Name { get; set; }
+        //protected string Sex { get; set; }
+        //protected int Age { get; set; }
+        //protected string Phone { get; set; }
 
-        public Person(string id, string name, string sex, int age, string phone)
+        public Person(int id, string name, string sex, int age, string phone)
         {
             ID = id;
             Name = name;

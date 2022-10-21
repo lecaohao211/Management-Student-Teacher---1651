@@ -10,12 +10,14 @@ namespace ASM1651
     {
         static void Main(string[] args)
         {
-                   ShowMainMenu();
+            School green = new School();
+            ShowMainMenu(green);
 
         }
 
-        static void ShowMainMenu()
+        static void ShowMainMenu(School green)
         {
+            
             // Main menu
             Console.WriteLine("===SCHOOL MANAGEMENT MENU===");
             Console.WriteLine("===============================");
@@ -32,11 +34,11 @@ namespace ASM1651
             {
                 case "1":
                     // Show menu Student Management
-                    ShowMenuStudentManagement();
+                    ShowMenuStudentManagement(green);
                     break;
                 case "2":
                     // Show menu Lecturer Management
-                    ShowMenuTeacherManagement();
+                    ShowMenuTeacherManagement(green);
                     break;
                 case "3":
                     // Exit program
@@ -44,15 +46,14 @@ namespace ASM1651
                     break;
                 default:
                     Console.WriteLine("Not correct command. Please input only number (1, 2 or 3)");
-                    ShowMainMenu();
+                    ShowMainMenu(green);
                     break;
             }
         }
 
 
-        static void ShowMenuStudentManagement()
+        static void ShowMenuStudentManagement(School green)
         {
-            School green = new School();
             string userChoose = String.Empty;
             do
             {
@@ -86,20 +87,19 @@ namespace ASM1651
                         green.DeleteStudent();
                         break;
                     case "5":
-                        ShowMainMenu();
+                        ShowMainMenu(green);
                         break;
                     default:
                         Console.WriteLine("Not correct command. Please input only number (1, 2, 3, 4 or 5)");
-                        ShowMenuStudentManagement();
+                        ShowMenuStudentManagement(green);
                         break;
                 }
             } while (userChoose != "5");
         }
 
 
-        static void ShowMenuTeacherManagement()
+        static void ShowMenuTeacherManagement(School green)
         {
-            School green = new School();
             string userChoose = String.Empty;
             do
             {
@@ -120,10 +120,10 @@ namespace ASM1651
                 switch (userChoose)
                 {
                     case "1":
-                        green.AddStudent();
+                        green.AddTeacher();
                         break;
                     case "2": 
-                        green.ShowStudent();
+                        green.ShowTeacher();
                         break;
                     case "3":
                         green.UpdateTeacher();
@@ -132,11 +132,11 @@ namespace ASM1651
                         green.DeleteTeacher();
                         break;
                     case "5": 
-                        ShowMainMenu();
+                        ShowMainMenu(green);
                         break;
                     default:
                         Console.WriteLine("Not correct command. Please input only number (1, 2, 3, 4 or 5)");
-                        ShowMenuStudentManagement();
+                        ShowMenuStudentManagement(green);
                         break;
                 }
             } while (userChoose != "5");

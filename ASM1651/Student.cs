@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace ASM1651
 {
@@ -10,7 +13,7 @@ namespace ASM1651
     {
         public double Grade { get; set; }
         public string Classes { get; set; }
-        public Student(string id, string name, string sex, int age, string phone, double grade, string classes) : base(id, name, sex, age, phone)
+        public Student(int id, string name, string sex, int age, string phone, double grade, string classes) : base(id, name, sex, age, phone)
         {
             Grade = grade;
             Classes = classes;
