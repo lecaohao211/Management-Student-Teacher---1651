@@ -8,8 +8,8 @@ namespace ASM1651
 {
    interface ISalary
     {
-        int salary { get; set; }
-        void RattingSalary();
+       int Salary { get; set; }
+       void RattingSalary();
 
     }
 }

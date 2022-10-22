@@ -9,16 +9,11 @@ namespace ASM1651
 {
     abstract class Person
     {
-        //protected int ID { get; set; }
         public int ID { get; set; }
         public string Name { get; set; }
         public string Sex { get; set; }
         public int Age { get; set; }
         public string Phone { get; set; }
-        //protected string Name { get; set; }
-        //protected string Sex { get; set; }
-        //protected int Age { get; set; }
-        //protected string Phone { get; set; }
 
         public Person(int id, string name, string sex, int age, string phone)
         {
@@ -28,11 +23,9 @@ namespace ASM1651
             Age = age;
             Phone = phone;
         }
-
         public Person()
         {
-        }
-
+        }   
         public virtual void DisplayInfo() 
         {
             Console.WriteLine($"ID: {ID}, Name: {Name}, Sex: {Sex}, Age: {Age}, Phone: {Phone}");

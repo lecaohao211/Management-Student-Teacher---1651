@@ -23,9 +23,9 @@ namespace ASM1651
         {
         }
 
+        //Display student information
         public override void DisplayInfo()
         {
-            //Console.WriteLine($"ID: {ID}, Name: {Name}, Sex: {Sex}, Age: {Age}, Phone: {Phone}, Grade: {Grade}, Class: {Classes}");
             Console.WriteLine("=========STUDENT LIST=========");
             Console.WriteLine("Student ID:    " + ID);
             Console.WriteLine("Student Name:  " + Name);
@@ -37,22 +37,25 @@ namespace ASM1651
             Console.WriteLine("===============================");
             Console.WriteLine("                               ");
         }
+        //Notification when adding students successfully
         public override void NotifyWhenAdded()
         {
             Console.WriteLine("Add Student Successfully!");
         }
+        //Notification when student update is successful
         public override void NotifyWhenupdated()
         {
             Console.WriteLine("Update Student Successfully!");
         }
+        //Notice when deleting students successfully
         public override void NotifyWhenDeleted()
         {
             Console.WriteLine("Delete Student Successfully!");
         }
 
-        public static implicit operator Student(Teacher v)
-        {
-            throw new NotImplementedException();
-        }
+        //public static implicit operator Student(Teacher v)
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 }

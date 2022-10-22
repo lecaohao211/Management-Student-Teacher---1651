@@ -17,7 +17,6 @@ namespace ASM1651
 
         static void ShowMainMenu(School green)
         {
-            
             // Main menu
             Console.WriteLine("===SCHOOL MANAGEMENT MENU===");
             Console.WriteLine("===============================");
@@ -37,7 +36,7 @@ namespace ASM1651
                     ShowMenuStudentManagement(green);
                     break;
                 case "2":
-                    // Show menu Lecturer Management
+                    // Show menu Teache r Management
                     ShowMenuTeacherManagement(green);
                     break;
                 case "3":

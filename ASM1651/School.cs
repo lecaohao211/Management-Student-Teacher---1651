@@ -16,9 +16,9 @@ namespace ASM1651
 
         public void AddStudent()
         {
+            //Enter student information
             Console.Write("Enter Student ID: ");
             int id = int.Parse(Console.ReadLine());
-            //string id = Console.ReadLine();
             Console.Write("Enter Student Name: ");
             string name = Console.ReadLine();
             Console.Write("Enter Student Sex: ");
@@ -33,13 +33,14 @@ namespace ASM1651
             string classes = Console.ReadLine();
             Student student = new Student(id, name, sex, age, phone, grade, classes);
             Console.WriteLine("                               ");
-            //add student in list student
+            //add students to the list
             students.Add(student);
             student.NotifyWhenAdded();
             Console.WriteLine("                               ");
         }
         public void ShowStudent()
         {
+            //show students
             if (students == null || students.Count == 0)
             {
                 Console.WriteLine("List students is empty. Please Add Student!");
@@ -53,6 +54,7 @@ namespace ASM1651
         }
         public void UpdateStudent()
         {
+            //update students
             Student student1 = new Student();
             if (students == null || students.Count == 0)
             {
@@ -70,6 +72,7 @@ namespace ASM1651
             {
                 if (student.ID == idStudentUpdate)
                 {
+                   
                     Console.WriteLine("Please enter infomation update:");
                     Console.WriteLine("ID student: ");
                     int id = int.Parse(Console.ReadLine());
@@ -93,7 +96,6 @@ namespace ASM1651
                     student.Phone = phone;
                     student.Grade = grade;
                     student.Classes = classes;  
-                    //ghì đè
                     Console.WriteLine("Update Sucessfuly!");
                     break;
                 }
@@ -101,6 +103,7 @@ namespace ASM1651
         }
         public void DeleteStudent()
         {
+            //delet students
             Student student1 = new Student();
             if (students == null || students.Count == 0)
             {
@@ -128,10 +131,8 @@ namespace ASM1651
         }
         public void AddTeacher()
         {
-       
             Console.Write("Enter Teacher ID: ");
             int id = int.Parse(Console.ReadLine());
-            //string id = Console.ReadLine();
             Console.Write("Enter Teacher Name: ");
             string name = Console.ReadLine();
             Console.Write("Enter Teacher Sex: ");
@@ -144,15 +145,16 @@ namespace ASM1651
             string subject = Console.ReadLine();
             Console.Write("Enter Teacher Year of Experience: ");
             int yearExperience = int.Parse(Console.ReadLine());
+            Console.Write("Enter Teacher Salary: ");
+            int Salary = int.Parse(Console.ReadLine());
             Console.Write("Enter Teacher Email: ");
             string email = Console.ReadLine();
-            Teacher teacher = new Teacher(id, name, sex, age, phone, subject, yearExperience, email);
+            Teacher teacher = new Teacher(id, name, sex, age, phone, subject, yearExperience,Salary, email);
             Console.WriteLine("                               ");
             //add teacher in list teacher
             teachers.Add(teacher);
             teacher.NotifyWhenAdded();
             Console.WriteLine("                               ");
-
         }
         public void ShowTeacher()
         {
@@ -165,6 +167,7 @@ namespace ASM1651
             {
                 teacher.DisplayInfo();
             }
+            
         }
         public void UpdateTeacher()
         {
@@ -200,8 +203,10 @@ namespace ASM1651
                     string subject = Console.ReadLine();
                     Console.WriteLine("Year Experience Teacher: ");
                     int yearExperience = int.Parse(Console.ReadLine());
+                    Console.Write("Enter Teacher Salary: ");
+                    int Salary = int.Parse(Console.ReadLine());
                     Console.WriteLine("Email Teacher: ");
-                    string email = Console.ReadLine();
+                    string email = Console.ReadLine() ;
 
                     teacher.ID = id;
                     teacher.Name = name;
@@ -211,7 +216,6 @@ namespace ASM1651
                     teacher.Subject = subject;
                     teacher.YearExperience = yearExperience;
                     teacher.Email = email;
-                    //ghì đè
                     Console.WriteLine("Update Sucessfuly!");
                     break;
                 }
@@ -219,16 +223,30 @@ namespace ASM1651
         }
         public void DeleteTeacher()
         {
+            //delet students
             Teacher teacher1 = new Teacher();
             if (teachers == null || teachers.Count == 0)
             {
-                Console.WriteLine("List students is empty. Please Add Student!");
+                Console.WriteLine("List teachers is empty. Please Add Teacher!");
                 AddTeacher();
             }
-            Console.Write("Enter Student ID Delete: ");
-            string idTeacherDelete = Console.ReadLine();
-            Teacher teacher = new Teacher();
-            teachers.Remove(teacher);
+            Console.Write("Enter Teacher ID Delete: ");
+            int idTeacherDelete = int.Parse(Console.ReadLine());
+            while (idTeacherDelete.ToString() == "")
+            {
+                Console.WriteLine("Please input ID for delete teacher.");
+                idTeacherDelete = int.Parse(Console.ReadLine());
+            }
+
+            foreach (Teacher teacher in teachers)
+            {
+                if (teacher.ID == idTeacherDelete)
+                {
+                    teachers.Remove(teacher);
+                    Console.WriteLine("Delete Sucessfuly!");
+                    break;
+                }
+            }
         }
     }
 }
