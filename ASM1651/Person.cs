@@ -15,6 +15,7 @@ namespace ASM1651
         public int Age { get; set; }
         public string Phone { get; set; }
 
+
         public Person(int id, string name, string sex, int age, string phone)
         {
             ID = id;
@@ -42,7 +43,10 @@ namespace ASM1651
         {
             Console.WriteLine("Delete successfully");
         }
-
+        protected virtual void Position()
+        {
+            Console.WriteLine("Delete successfully");
+        }
 
 
     }

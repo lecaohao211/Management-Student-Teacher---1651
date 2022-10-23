@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Net.Sockets;
 using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using System.Security.Policy;
 using System.Text;
@@ -15,19 +16,30 @@ namespace ASM1651
         public string Subject { get; set; }
         public int YearExperience { get; set; }
         public string Email { get; set; }
-        public int Salary { get; set; }
+        private int Salary { get; set; }
+        //private string Address { get; set; }
         public Teacher() { }
-        public Teacher(int id, string name, string sex, int age, string phone, string subject, int yearExperience, int Salary, string email) : base(id,name,sex,age,phone)
+        public Teacher(int id, string name, string sex, int age, string phone, string subject, int yearExperience, int Salary, string email) : base(id, name, sex, age, phone)
         {
             Subject = subject;
             YearExperience = yearExperience;
             Email = email;
+            //Address = address;
             this.Salary = Salary;
         }
+        public int Salarys
+        {
+            get { return Salary; }
+            set { Salary = value; }
+        }
+
+        int ISalary.Salary { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
         //Display teacher information
         public override void DisplayInfo()  
         {
             Console.WriteLine("=========TEACHER LIST=========");
+            //Console.WriteLine("Teacher Position:    " + Position);
             Console.WriteLine("Teacher ID:    " + ID);
             Console.WriteLine("Teacher Name:  " + Name);
             Console.WriteLine("Teacher Sex:   " + Sex);
@@ -35,7 +47,8 @@ namespace ASM1651
             Console.WriteLine("Teacher Phone: " + Phone);
             Console.WriteLine("Teacher Subject: " + Subject);
             Console.WriteLine("Teacher Year of Experience: " + YearExperience);
-            Console.Write("Salary: " + Salary + " Your salary is ");
+            Console.WriteLine("Salary: " + Salary + " Your salary is ");
+            //Console.WriteLine("Address: " + Address);
             RattingSalary();
             Console.WriteLine("Teacher Email: " + Email);
             Console.WriteLine("===============================");
@@ -71,9 +84,13 @@ namespace ASM1651
             {
                 Console.WriteLine("High Salary");
             }
+
         }
 
-
+        void ISalary.RattingSalary()
+        {
+            throw new NotImplementedException();
+        }
     }
 
 

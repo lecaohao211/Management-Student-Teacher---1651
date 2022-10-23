@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Net.Sockets;
 using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,7 @@ namespace ASM1651
     {
         public List<Student> students = new List<Student>();
         public List<Teacher> teachers = new List<Teacher>();
+
 
         public void AddStudent()
         {
@@ -70,9 +72,8 @@ namespace ASM1651
             }
             foreach (Student student in students)
             {
-                if (student.ID == idStudentUpdate)
+                if (student.IDs == idStudentUpdate)
                 {
-                   
                     Console.WriteLine("Please enter infomation update:");
                     Console.WriteLine("ID student: ");
                     int id = int.Parse(Console.ReadLine());
@@ -89,15 +90,21 @@ namespace ASM1651
                     Console.WriteLine("Class student: ");
                     string classes = Console.ReadLine();
 
-                    student.ID = id;
+                    student.Grades= grade;
+                    student.IDs = id;
                     student.Name = name;
                     student.Sex = sex;
                     student.Age = age;
                     student.Phone = phone;
-                    student.Grade = grade;
-                    student.Classes = classes;  
+                    student.Classes = classes;
+                    //student.ParentPhoneNumber = parentPhoneNumber;
                     Console.WriteLine("Update Sucessfuly!");
                     break;
+                }
+                else
+                {
+                    Console.WriteLine("Please re-enter the student ID you want to update:");
+
                 }
             }
         }
@@ -117,14 +124,18 @@ namespace ASM1651
                 Console.WriteLine("Please input ID for delete student.");
                 idStudentDelete = int.Parse(Console.ReadLine());
             }
-            
             foreach (Student student in students)
             {
-                if ( student.ID == idStudentDelete)
+                if ( student.IDs == idStudentDelete)
                 {
                     students.Remove(student);
                     Console.WriteLine("Delete Sucessfuly!");
                     break;
+                }
+                else
+                {
+                    Console.WriteLine("Please re-enter the student ID you want to delete:");
+
                 }
             }
 
@@ -186,9 +197,11 @@ namespace ASM1651
             }
             foreach (Teacher teacher in teachers)
             {
-                if (teacher.ID == idTeacherUpdate)
+                if (teacher.IDs == idTeacherUpdate)
                 {
                     Console.WriteLine("Please enter infomation update:");
+                    Console.Write("Enter Teacher Position: ");
+                    string position = Console.ReadLine();
                     Console.WriteLine("ID Teacher: ");
                     int id = int.Parse(Console.ReadLine());
                     Console.WriteLine("Name Teacher: ");
@@ -203,12 +216,12 @@ namespace ASM1651
                     string subject = Console.ReadLine();
                     Console.WriteLine("Year Experience Teacher: ");
                     int yearExperience = int.Parse(Console.ReadLine());
-                    Console.Write("Enter Teacher Salary: ");
+                    Console.WriteLine("Enter Teacher Salary: ");
                     int Salary = int.Parse(Console.ReadLine());
                     Console.WriteLine("Email Teacher: ");
-                    string email = Console.ReadLine() ;
+                    string email = Console.ReadLine();
 
-                    teacher.ID = id;
+                    teacher.IDs = id;
                     teacher.Name = name;
                     teacher.Sex = sex;
                     teacher.Age = age;
@@ -219,11 +232,12 @@ namespace ASM1651
                     Console.WriteLine("Update Sucessfuly!");
                     break;
                 }
+                else {Console.WriteLine("Please re-enter the student ID you want to update: "); }
             }
         }
         public void DeleteTeacher()
         {
-            //delet students
+            //delete students
             Teacher teacher1 = new Teacher();
             if (teachers == null || teachers.Count == 0)
             {
@@ -240,13 +254,15 @@ namespace ASM1651
 
             foreach (Teacher teacher in teachers)
             {
-                if (teacher.ID == idTeacherDelete)
+                if (teacher.IDs == idTeacherDelete)
                 {
                     teachers.Remove(teacher);
                     Console.WriteLine("Delete Sucessfuly!");
                     break;
                 }
+                else { Console.WriteLine("Please re-enter the student ID you want to delete: "); }
             }
         }
+
     }
 }

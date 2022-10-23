@@ -11,16 +11,27 @@ namespace ASM1651
 {
     class Student : Person
     {
-        public double Grade { get; set; }
+        private double Grade { get; set; }
         public string Classes { get; set; }
+        //private string ParentPhoneNumber { get; set; }
         public Student(int id, string name, string sex, int age, string phone, double grade, string classes) : base(id, name, sex, age, phone)
         {
             Grade = grade;
             Classes = classes;
+            //ParentPhoneNumber = parentPhoneNumber;
         }
 
         public Student()
         {
+        }
+        //public void setGrade(double grade)
+        //{
+        //    Grade = grade;
+        //}
+        public double Grades
+        {
+            get { return Grade; }
+            set { Grade = value; }
         }
 
         //Display student information
@@ -34,6 +45,7 @@ namespace ASM1651
             Console.WriteLine("Student Phone: " + Phone);
             Console.WriteLine("Student Grade: " + Grade);
             Console.WriteLine("Student Class: " + Classes);
+            //Console.WriteLine("Parent Phone Number: " + ParentPhoneNumber);
             Console.WriteLine("===============================");
             Console.WriteLine("                               ");
         }
@@ -52,6 +64,8 @@ namespace ASM1651
         {
             Console.WriteLine("Delete Student Successfully!");
         }
+
+
 
         //public static implicit operator Student(Teacher v)
         //{
